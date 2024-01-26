@@ -1,0 +1,5 @@
+==================
+collective.rosters
+==================
+
+User documentation
