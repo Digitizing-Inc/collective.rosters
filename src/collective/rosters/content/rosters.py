@@ -11,6 +11,16 @@ from zope.interface import implementer
 from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
 
+from collective.z3cform.datagridfield.datagridfield import DataGridFieldFactory
+from collective.z3cform.datagridfield.row import DictRow
+from plone.autoform.form import AutoExtensibleForm
+from z3c.form import form
+from zope import interface
+
+class ITableRowSchema(interface.Interface):
+    one = schema.TextLine(title=u"One")
+    two = schema.TextLine(title=u"Two")
+    three = schema.TextLine(title=u"Three")
 
 class IRosters(model.Schema):
     """Dexterity-Schema for Rosters"""
@@ -27,6 +37,15 @@ class IRosters(model.Schema):
         description='Description of the rosters (max. 2000 characters)',
         max_length=2000,
         required=True,
+    )
+
+    directives.widget(table=DataGridFieldFactory)
+    table = schema.List(
+        title=u"Table",
+        value_type=DictRow(
+            title=u"tablerow",
+            schema=ITableRowSchema,
+        ),
     )
 
     # directives.widget(audience=CheckBoxFieldWidget)
