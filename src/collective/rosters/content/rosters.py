@@ -46,6 +46,7 @@ class IRosters(model.Schema):
             title=u"tablerow",
             schema=ITableRowSchema,
         ),
+        required=False,
     )
 
     # directives.widget(audience=CheckBoxFieldWidget)
