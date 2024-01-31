@@ -4,6 +4,7 @@ from plone.autoform import directives
 from plone.dexterity.content import Container
 from plone.namedfile.field import NamedBlobImage
 from plone.schema.email import Email
+from plone.schema.JSONField import JSONField
 from plone.supermodel import model
 from z3c.form.browser.checkbox import CheckBoxFieldWidget
 from z3c.form.browser.radio import RadioFieldWidget
@@ -17,10 +18,10 @@ from plone.autoform.form import AutoExtensibleForm
 from z3c.form import form
 from zope import interface
 
-class ITableRowSchema(interface.Interface):
-    one = schema.TextLine(title=u"One")
-    two = schema.TextLine(title=u"Two")
-    three = schema.TextLine(title=u"Three")
+# class ITableRowSchema(interface.Interface):
+#     one = schema.TextLine(title=u"One")
+#     two = schema.TextLine(title=u"Two")
+#     three = schema.TextLine(title=u"Three")
 
 class IRosters(model.Schema):
     """Dexterity-Schema for Rosters"""
@@ -39,15 +40,22 @@ class IRosters(model.Schema):
         required=True,
     )
 
-    directives.widget(table=DataGridFieldFactory)
-    table = schema.List(
-        title=u"Table",
-        value_type=DictRow(
-            title=u"tablerow",
-            schema=ITableRowSchema,
-        ),
-        required=False,
+    directives.widget(type_of_talk=JSONField)
+    table = JSONField(
+        title='Table',
+        description='Table that holds record of rosters.',
+        required=False
     )
+
+    # directives.widget(table=DataGridFieldFactory)
+    # table = schema.List(
+    #     title=u"Table",
+    #     value_type=DictRow(
+    #         title=u"tablerow",
+    #         schema=ITableRowSchema,
+    #     ),
+    #     required=False,
+    # )
 
     # directives.widget(audience=CheckBoxFieldWidget)
     # audience = schema.Set(
