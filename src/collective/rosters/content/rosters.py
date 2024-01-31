@@ -4,7 +4,7 @@ from plone.autoform import directives
 from plone.dexterity.content import Container
 from plone.namedfile.field import NamedBlobImage
 from plone.schema.email import Email
-from plone.schema.JSONField import JSONField
+from plone.schema.jsonfield import JSONField
 from plone.supermodel import model
 from z3c.form.browser.checkbox import CheckBoxFieldWidget
 from z3c.form.browser.radio import RadioFieldWidget
