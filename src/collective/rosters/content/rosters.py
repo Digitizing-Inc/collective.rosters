@@ -17,6 +17,7 @@ from collective.z3cform.datagridfield.row import DictRow
 from plone.autoform.form import AutoExtensibleForm
 from z3c.form import form
 from zope import interface
+import json
 
 # class ITableRowSchema(interface.Interface):
 #     one = schema.TextLine(title=u"One")
@@ -40,12 +41,36 @@ class IRosters(model.Schema):
         required=True,
     )
 
-    directives.widget(type_of_talk=JSONField)
-    table = JSONField(
-        title='Table',
-        description='Table that holds record of rosters.',
-        required=False
-    )
+    # TABLE_SCHEMA = json.dumps({
+    #     "type": "object",
+    #     "properties": {
+    #         "vocab": {
+    #         "description": "A list of items",
+    #         "type": "array",
+    #         "items": {
+    #         "name": "string",
+    #         "type": "string",
+    #         "required": [ "name", "type" ]
+    #         },
+    #         "uniqueItems": True
+    #         }
+    #     }
+    # })
+
+    # directives.widget(table=JSONField)
+    # table = JSONField(
+    #     title='Table',
+    #     description='Table that holds record of rosters.',
+    #     # schema=TABLE_SCHEMA,
+    #     # default={
+    #     #     "vocab": [{"name": "banana",
+    #     #            "type": "fruit"},
+    #     #           {"sbapiid": "tomato",
+    #     #            "biblioid": "vegetable"}]
+    #     # },
+    #     required=False,
+    #     readonly=False
+    # )
 
     # directives.widget(table=DataGridFieldFactory)
     # table = schema.List(
@@ -72,24 +97,9 @@ class IRosters(model.Schema):
         required=False,
     )
 
-    # company = schema.TextLine(
-    #     title='Company',
-    #     required=False,
-    # )
-
     # email = Email(
     #     title='Email',
     #     description='Email adress of the speaker',
-    #     required=False,
-    # )
-
-    # website = schema.TextLine(
-    #     title='Website',
-    #     required=False,
-    # )
-
-    # twitter = schema.TextLine(
-    #     title='Twitter name',
     #     required=False,
     # )
 
