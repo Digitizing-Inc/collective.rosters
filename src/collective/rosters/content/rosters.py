@@ -17,7 +17,6 @@ from collective.z3cform.datagridfield.row import DictRow
 from plone.autoform.form import AutoExtensibleForm
 from z3c.form import form
 from zope import interface
-import json
 
 # class ITableRowSchema(interface.Interface):
 #     one = schema.TextLine(title=u"One")
@@ -27,50 +26,29 @@ import json
 class IRosters(model.Schema):
     """Dexterity-Schema for Rosters"""
 
-    # directives.widget(type_of_talk=RadioFieldWidget)
-    # type_of_talk = schema.Choice(
-    #     title='Type of rosters',
-    #     values=['Rosters', 'Training', 'Keynote'],
-    #     required=True,
-    # )
-
-    details = RichText(
-        title='Details',
-        description='Description of the rosters (max. 2000 characters)',
-        max_length=2000,
+    fromEmail = Email(
+        title='From Email',
+        description='Email adress of the sender of attendance email notification',
         required=True,
     )
 
-    # TABLE_SCHEMA = json.dumps({
-    #     "type": "object",
-    #     "properties": {
-    #         "vocab": {
-    #         "description": "A list of items",
-    #         "type": "array",
-    #         "items": {
-    #         "name": "string",
-    #         "type": "string",
-    #         "required": [ "name", "type" ]
-    #         },
-    #         "uniqueItems": True
-    #         }
-    #     }
-    # })
+    subjectEmail = schema.TextLine(
+        title='Subject',
+        description='Subject of attendance email notification',
+        required=True,
+    )
 
-    # directives.widget(table=JSONField)
-    # table = JSONField(
-    #     title='Table',
-    #     description='Table that holds record of rosters.',
-    #     # schema=TABLE_SCHEMA,
-    #     # default={
-    #     #     "vocab": [{"name": "banana",
-    #     #            "type": "fruit"},
-    #     #           {"sbapiid": "tomato",
-    #     #            "biblioid": "vegetable"}]
-    #     # },
-    #     required=False,
-    #     readonly=False
-    # )
+    messageEmail = schema.TextLine(
+        title='Message',
+        description='Body of the email',
+        required=True,
+    )
+
+    table = JSONField(
+        title='Table',
+        description='Table that holds record of rosters.',
+        required=False
+    )
 
     # directives.widget(table=DataGridFieldFactory)
     # table = schema.List(
@@ -82,6 +60,13 @@ class IRosters(model.Schema):
     #     required=False,
     # )
 
+    # directives.widget(type_of_talk=RadioFieldWidget)
+    # type_of_talk = schema.Choice(
+    #     title='Type of rosters',
+    #     values=['Rosters', 'Training', 'Keynote'],
+    #     required=True,
+    # )
+
     # directives.widget(audience=CheckBoxFieldWidget)
     # audience = schema.Set(
     #     title='Audience',
@@ -91,32 +76,9 @@ class IRosters(model.Schema):
     #     required=False,
     # )
 
-    speaker = schema.TextLine(
-        title='Speaker',
-        description='Name (or names) of the speaker',
-        required=False,
-    )
-
-    # email = Email(
-    #     title='Email',
-    #     description='Email adress of the speaker',
-    #     required=False,
-    # )
-
-    # github = schema.TextLine(
-    #     title='Github username',
-    #     required=False,
-    # )
-
     # image = NamedBlobImage(
     #     title='Image',
     #     description='Portrait of the speaker',
-    #     required=False,
-    # )
-
-    # speaker_biography = RichText(
-    #     title='Speaker Biography (max. 1000 characters)',
-    #     max_length=1000,
     #     required=False,
     # )
 
