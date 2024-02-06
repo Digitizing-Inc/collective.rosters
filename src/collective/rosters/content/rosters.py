@@ -38,7 +38,7 @@ class IRosters(model.Schema):
         required=True,
     )
 
-    messageEmail = RichText(
+    messageEmail = schema.TextLine(
         title='Message',
         description='Body of the email',
         required=True,
