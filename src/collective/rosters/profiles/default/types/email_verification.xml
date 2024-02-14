@@ -21,9 +21,7 @@
  <property name="klass">collective.rosters.content.rosters.EmailVerification</property>
  <property name="schema">collective.rosters.content.rosters.IEmailVerification</property>
  <property name="behaviors">
-  <element value="plone.dublincore"/>
-  <element value="plone.namefromtitle"/>
-  <element value="plone.versioning" />
+  <!-- <element value="plone.blocks" /> -->
  </property>
  <property name="model_source"></property>
  <property name="model_file"></property>
