@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <object name="email_verification" meta_type="Dexterity FTI" i18n:domain="plone"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title" i18n:translate="">EmailVerification</property>
+ <property name="title" i18n:translate="">Email Verification</property>
  <property name="description" i18n:translate=""></property>
  <property name="icon_expr">string:${portal_url}/document_icon.png</property>
  <property name="factory">email_verification</property>
@@ -18,10 +18,10 @@
  </property>
  <property name="default_view_fallback">False</property>
  <property name="add_permission">cmf.AddPortalContent</property>
- <property name="klass">collective.rosters.content.rosters.EmailVerification</property>
- <property name="schema">collective.rosters.content.rosters.IEmailVerification</property>
+ <property name="klass">collective.rosters.content.email_verification.EmailVerification</property>
+ <property name="schema">collective.rosters.content.email_verification.IEmailVerification</property>
  <property name="behaviors">
-  <!-- <element value="plone.blocks" /> -->
+  <element value="plone.basic" />
  </property>
  <property name="model_source"></property>
  <property name="model_file"></property>

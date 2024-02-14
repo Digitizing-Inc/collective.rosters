@@ -21,9 +21,8 @@
  <property name="klass">collective.rosters.content.rosters.Rosters</property>
  <property name="schema">collective.rosters.content.rosters.IRosters</property>
  <property name="behaviors">
-  <element value="plone.dublincore"/>
-  <element value="plone.namefromtitle"/>
-  <element value="plone.versioning" />
+  <element value="plone.basic" />
+  <element value="volto.blocks" />
  </property>
  <property name="model_source"></property>
  <property name="model_file"></property>
