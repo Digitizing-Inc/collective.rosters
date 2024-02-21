@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
-<object name="rosters" meta_type="Dexterity FTI" i18n:domain="plone"
+<object name="email_verification" meta_type="Dexterity FTI" i18n:domain="plone"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title" i18n:translate="">Rosters</property>
+ <property name="title" i18n:translate="">Email Verification</property>
  <property name="description" i18n:translate=""></property>
  <property name="icon_expr">string:${portal_url}/document_icon.png</property>
- <property name="factory">rosters</property>
- <property name="add_view_expr">string:${folder_url}/++add++rosters</property>
+ <property name="factory">email_verification</property>
+ <property name="add_view_expr">string:${folder_url}/++add++email_verification</property>
  <property name="link_target"></property>
  <property name="immediate_view">view</property>
  <property name="global_allow">True</property>
@@ -18,11 +18,10 @@
  </property>
  <property name="default_view_fallback">False</property>
  <property name="add_permission">cmf.AddPortalContent</property>
- <property name="klass">collective.rosters.content.rosters.Rosters</property>
- <property name="schema">collective.rosters.content.rosters.IRosters</property>
+ <property name="klass">collective.rosters.content.email_verification.EmailVerification</property>
+ <property name="schema">collective.rosters.content.email_verification.IEmailVerification</property>
  <property name="behaviors">
   <element value="plone.basic" />
-  <element value="volto.blocks" />
  </property>
  <property name="model_source"></property>
  <property name="model_file"></property>
