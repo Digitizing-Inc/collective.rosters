@@ -134,9 +134,12 @@ class EmailSendAdvancePost(Service):
 
         message = message_from_string(message)
         message["Reply-To"] = sender_from_address
-        message["To"] = formataddr((send_to_address, send_to_address))
-        message["Cc"] = formataddr((send_cc_address, send_cc_address))
-        message["Bcc"] = formataddr((send_bcc_address, send_bcc_address))
+        if send_to_address  is not None:
+            message["To"] = formataddr((send_to_address, send_to_address))
+        if send_cc_address  is not None:
+            message["Cc"] = formataddr((send_cc_address, send_cc_address))
+        if send_bcc_address  is not None:
+            message["Bcc"] = formataddr((send_bcc_address, send_bcc_address))
         try:
             host.send(
                 message,
